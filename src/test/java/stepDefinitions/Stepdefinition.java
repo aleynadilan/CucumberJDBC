@@ -79,6 +79,7 @@ public class Stepdefinition {
     public void update_query_si_hazirlanir() {
         query1="insert into heallife_hospitaltraining.appointment (priority,specialist,doctor,amount,message,appointment_status,source,is_opd,is_ipd,live_consult) values (1,2,2,0,'helloTeam113','approved','OFFline','no','yes','yes');";
 
+        // bir satir'da update islemi yaptik
     }
 
     @Given("Sonuclari alinir ve dogrulanir.")
