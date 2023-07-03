@@ -1,8 +1,8 @@
 Feature: JDBC Query_4
 
-    # heallife_hospitaltraining.languages bolumunde karsilastirma yapilir
-    # Database üzerinden languages tablosundaki short_code "yi" olan verinin language bilgisinin
-    # "Yiddish" oldugunu dogrulayin.
+# heallife_hospitaltraining.languages bolumunde karsilastirma yapilir
+# Database üzerinden languages tablosundaki short_code "yi" olan verinin language bilgisinin
+# "Yiddish" oldugunu dogrulayin.
 
   Background: Connection
     * Database baglantisi kurulur.

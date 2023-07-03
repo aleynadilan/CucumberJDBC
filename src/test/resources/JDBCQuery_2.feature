@@ -1,7 +1,7 @@
 Feature: JDBC Query_2
 
-  # Database üzerinden hastane sistemine gerekli bilgiler girilerek
-  # randevu alinabildigini dogrulayiniz.
+# Database üzerinden hastane sistemine gerekli bilgiler girilerek
+# randevu alinabildigini dogrulayiniz.
 
   @team113
   Scenario: hastane sistemine gerekli bilgiler girilerek randevu alinabildigini dogrulayiniz.

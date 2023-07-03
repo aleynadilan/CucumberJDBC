@@ -1,7 +1,7 @@
 Feature: JDBC Query 3
 
-  # Database üzerinden appointment tablosunda ögleden önce icin alinmis randevularin ögleden
-  # sonra icin alinan randevulardan az oldugunu dogrulayiniz.
+# Database üzerinden appointment tablosunda ögleden önce icin alinmis randevularin ögleden
+# sonra icin alinan randevulardan az oldugunu dogrulayiniz.
 
   Background: Connection
     * Database baglantisi kurulur.

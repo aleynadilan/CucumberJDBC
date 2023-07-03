@@ -1,9 +1,7 @@
 package stepDefinitions;
 
-import com.mysql.cj.protocol.Resultset;
 import io.cucumber.java.en.Given;
 
-import utilities.ConfigReader;
 import utilities.JDBCReusableMethods;
 import utilities.Manage;
 
@@ -12,24 +10,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import static org.junit.Assert.*;
-import static utilities.JDBCReusableMethods.getResultset;
 import static utilities.JDBCReusableMethods.getStatement;
 
-
 public class Stepdefinition {
+
     String query;
     String query1;
     ResultSet rs;
     ResultSet rs1;
     Statement st;
-
-
     int flag;
 
     Manage manage = new Manage();
+
     @Given("Database baglantisi kurulur.")
     public void database_baglantisi_kurulur() {
         JDBCReusableMethods.createConnection();
+        // Su an database baglantisini kurduk
     }
 
     @Given("Query hazirlanir.")
@@ -39,7 +36,20 @@ public class Stepdefinition {
 
     @Given("Query calistirilir ve sonuclari alinir.")
     public void query_calistirilir_ve_sonuclari_alinir() throws SQLException {
+
+        /*
+         Statement st = getStatement();  ==> sql sorgularini yapabilmek icin suite hazirladik
+         rs = st.executeQuery(query);
+
+         Bu sekilde de kullanabiliriz
+         */
+
+        // getStatement() method'unda Statement'i olusturduk ve bu method bize bir Statement nesnesi donecek
+
         rs = getStatement().executeQuery(query);
+        // Statement uzerinden executeQuery() method'unu kullandik ve bu method ile query'imizi calistirdik
+        // sonuclari almak icin bu executeQuery() method'unu ResultSet'e kaydederiz
+        // ResultSet uzerinden sonuclari aliriz
 
     }
 
@@ -48,11 +58,15 @@ public class Stepdefinition {
         int expectedData = 2;
 
         flag=0;
+
         while(rs.next()){
             flag++;
         }
+
         assertEquals(expectedData,flag);
+
     }
+
     @Given("Database baglantisi kapatilir.")
     public void database_baglantisi_kapatilir() {
 

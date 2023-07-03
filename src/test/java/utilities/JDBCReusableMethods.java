@@ -62,6 +62,7 @@ public class JDBCReusableMethods {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
        /* try {
             resultSet = statement.executeQuery(query);
         } catch (SQLException e) {
