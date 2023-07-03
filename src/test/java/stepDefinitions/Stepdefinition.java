@@ -87,9 +87,11 @@ public class Stepdefinition {
         int sonuc = JDBCReusableMethods.getStatement().executeUpdate(query1);
 
         int verify=0;
+
         if(sonuc > 0){
             verify++;
         }
+
         assertEquals(verify,1);
     }
 
