@@ -134,7 +134,7 @@ public class Stepdefinition {
     public void languages_tablosuna_query_gönderilir_ve_sonuclar_dogrulanir() throws SQLException {
 
         rs= getStatement().executeQuery(manage.getLanguagesQuery());
-        rs.next();
+        rs.next(); // iterator
         String expectedLanguages= "Yiddish";
         String actualLanguages= rs.getString(1);
 
