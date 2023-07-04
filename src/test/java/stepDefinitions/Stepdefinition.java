@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Given;
 
+import utilities.ConfigReader;
 import utilities.JDBCReusableMethods;
 import utilities.Manage;
 
@@ -18,7 +19,6 @@ public class Stepdefinition {
     String query1;
     ResultSet rs;
     ResultSet rs1;
-    Statement st;
     int flag;
 
     Manage manage = new Manage();
@@ -99,19 +99,28 @@ public class Stepdefinition {
     //-------------------------------------------------------------------------------
 
     @Given("Randevu sayilarini ogrenebilecegimiz sql querysi hazirlanir.")
-    public void randevu_sayilarini_ogrenebilecegimiz_sql_querysi_hazirlanir() {
+    public void radevu_sayilarini_ogrenebilecegimiz_sql_querysi_hazirlnanir() {
 
+        /*
+       String querySabah = "SELECT count(*) FROM heallife_hospitaltraining.appointment WHERE HOUR(time) < 12";
+       String queryAksam = "SELECT count(*) FROM heallife_hospitaltraining.appointment WHERE HOUR(time) > 12";
+         */
+
+        // query = manage.getQuerySabah();
     }
 
     @Given("Query calistirilir ve sonuclar dogrulanir.")
     public void query_calistirilir_ve_sonuclar_dogrulanir() throws SQLException {
+
+        // rs = getStatement().executeQuery(query);
+        // rs = getStatement().executeQuery(ConfigReader.getProperty("querySabah"));
 
         rs = getStatement().executeQuery(manage.getQuerySabah());
         rs.next();
         System.out.println(rs.getInt(1));
         int sabahRandevulari= rs.getInt(1);
 
-        ResultSet rs1 = JDBCReusableMethods.getStatement().executeQuery(manage.getQueryAksam());
+        rs1 = JDBCReusableMethods.getStatement().executeQuery(manage.getQueryAksam());
         rs1.next();
         System.out.println(rs1.getInt(1));
         int aksamRandevulari= rs1.getInt(1);
