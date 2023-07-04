@@ -8,7 +8,6 @@ import utilities.Manage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import static org.junit.Assert.*;
 import static utilities.JDBCReusableMethods.getStatement;
@@ -55,6 +54,7 @@ public class Stepdefinition {
 
     @Given("Query sonuclari dogrulanir.")
     public void query_sonuclari_dogrulanir() throws SQLException {
+
         int expectedData = 2;
 
         flag=0;
@@ -135,7 +135,7 @@ public class Stepdefinition {
 
         rs= getStatement().executeQuery(manage.getLanguagesQuery());
         rs.next(); // iterator
-        String expectedLanguages= "Yiddish";
+        String expectedLanguages=ConfigReader.getProperty("expectedLanguages");
         String actualLanguages= rs.getString(1);
 
         assertEquals(expectedLanguages,actualLanguages);
